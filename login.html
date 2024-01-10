@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>WELCOME TO MY WEBSITE</h1>
+    </header>
+
+    <section>
+        <h2>Welcome to my Home Page!</h2>
+        <p>This is a simple home page of my website
+            .</p>
+    </section>
+
+    <footer>
+       
+    </footer>
+</body>
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0edef;
+            text-align: center;
+        }
+
+        #image-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px;
+        }
+
+        .uploaded-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Image Uploader</h1>
+    <div>
+        <input type="file" id="imageInput" accept="image/*" multiple>
+        <button onclick="uploadImages()">Upload Images</button>
+    </div>
+
+    <div id="image-container"></div>
+
+    <script>
+        function uploadImages() {
+            var input = document.getElementById('imageInput');
+            var container = document.getElementById('image-container');
+
+            container.innerHTML = ''; // Clear existing images
+
+            for (var i = 0; i < Math.min(input.files.length, 4); i++) {
+                var file = input.files[i];
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    var img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.className = 'uploaded-image';
+                    container.appendChild(img);
+                };
+
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</body>
+
+</html>
+
+
